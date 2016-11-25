@@ -57,8 +57,6 @@ class CursorParallax{
     {
       window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
     }
-
-    window.requestAnimationFrame();
   }
   removeEvents ()
   {
