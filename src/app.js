@@ -1,7 +1,6 @@
 class CursorParallax{
   constructor(wrapper , options) 
   {
-    this.hage='getgetegteett';
     this.isStop = true;
 
     this.options = this.supplement({
