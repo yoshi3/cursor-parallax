@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+  <style>
+    .parallax-wrapper {
+      width: 500px;
+      height: 500px;
+      border: 1px solid #000;
+      overflow: hidden;
+    }
+    .parallax-wrapper .layer > div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #ccc;
+      border: 1px solid #000;
+    }
+    .parallax-wrapper .layer > div:nth-of-type(1) {
+      top: 20%;
+      left: 20%;
+      border-radius: 50% 0 50% 50%;
+    }
+    .parallax-wrapper .layer > div:nth-of-type(2) {
+      top: 20%;
+      right: 20%;
+      border-radius: 0 50% 50% 50%;
+    }
+    .parallax-wrapper .layer > div:nth-of-type(3) {
+      bottom: 20%;
+      left: 20%;
+      border-radius: 50% 50% 0 50%;
+    }
+    .parallax-wrapper .layer > div:nth-of-type(4) {
+      bottom: 20%;
+      right: 20%;
+      border-radius: 50% 50% 50% 0;
+    }
+  </style>
+</head>
+<body>
+  <p>Move cursor on this area or tilt device.</p>
+	<div class="parallax-wrapper">
+    <div class="layer" data-depth="1">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".9">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".8">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".7">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".6">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".5">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".4">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".3">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".2">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth=".1">
+      <div></div><div></div><div></div><div></div>
+    </div>
+    <div class="layer" data-depth="0">
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+  <script src="../dist/cursor-parallax.js"></script>
+  <script>
+    var elm = document.querySelector('.parallax-wrapper');
+    var cursorParallax = new CursorParallax(elm, {
+      easing: 'ease-out',
+      duration: '.6s',
+      mousemoveRatio: 0.5,
+      deviceorientationRatio: 1,
+      mousemove: true,
+      deviceorientation: true
+    });
+  </script>
+</body>
+</html>
