@@ -1,5 +1,5 @@
 class CursorParallax{
-  constructor(wrapper , options) 
+  constructor(wrapper, options) 
   {
     this.isStop = true;
 
@@ -109,4 +109,4 @@ class CursorParallax{
     removeEvents();
   }
 }
-window.CursorParallax = CursorParallax;
+module.exports = CursorParallax;

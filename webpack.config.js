@@ -4,7 +4,7 @@ const saveLicense = require('uglify-save-license');
 module.exports = {
   context: __dirname + '/',
   entry: {
-    'cursor-parallax': './src/app',
+    'cursor-parallax': './src/forBrowser',
   },
   output: {
     path: './dist',

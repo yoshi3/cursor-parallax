@@ -1,0 +1,1 @@
+window.CursorParallax = require('./main');
