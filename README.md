@@ -53,7 +53,7 @@ var cursorParallax = new CursorParallax(elm, {
 npm install cursor-parallax
 ```
 
-```
+```javascript
 var cursorParallax = new (require('cursor-parallax'))(elm, {options...});
 ```
 
