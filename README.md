@@ -48,6 +48,15 @@ var cursorParallax = new CursorParallax(elm, {
 - `start`: restart from stopped state
 - `destroy`: unbind all events
 
+## For npm
+```
+npm install cursor-parallax
+```
+
+```
+var cursorParallax = new (require('cursor-parallax'))(elm, {options...});
+```
+
 ## Development
 
 ### Setting up
