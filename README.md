@@ -2,7 +2,7 @@
 
 [![MIT License][license-image]][license-url]
 
-This is a simple parallax library that works with cursor and device orientation.
+This is the simple parallax library that works with cursor and device orientation.
 
 ## Support
 It works with ES5 's vanilla JS on browsers supporting `translate3d`.
