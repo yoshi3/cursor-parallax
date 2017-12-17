@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yossiy/cursor-parallax.git"
+    "url": "git@github.com:kokoyoshi/cursor-parallax.git"
   },
   "author": "yossiy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yossiy/cursor-parallax/issues"
+    "url": "https://github.com/kokoyoshi/cursor-parallax/issues"
   },
-  "homepage": "https://github.com/yossiy/cursor-parallax#readme",
+  "homepage": "https://github.com/kokoyoshi/cursor-parallax#readme",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
