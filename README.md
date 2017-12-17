@@ -70,7 +70,7 @@ npm install
 ```
 
 ## License
-The MIT License (MIT) Copyright (c) 2016 yossiy.
+The MIT License (MIT) Copyright (c) 2016 kokoyoshi.
 
 
 [license-image]:http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
