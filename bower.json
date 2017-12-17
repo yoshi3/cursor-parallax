@@ -7,7 +7,7 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/kokoyoshi/cursor-parallax",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
