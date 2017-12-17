@@ -1,6 +1,6 @@
 {
   "name": "cursor-parallax",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "This is a simple parallax library that works with cursor and device orientation.",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git@github.com:kokoyoshi/cursor-parallax.git"
   },
-  "author": "yossiy",
+  "author": "kokoyoshi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kokoyoshi/cursor-parallax/issues"
