@@ -1,6 +1,5 @@
 # cursor-parallax
 
-[![MIT License][license-image]][license-url]
 <a href="https://www.npmjs.com/package/cursor-parallax"><img src="https://img.shields.io/npm/v/cursor-parallax.svg" alt="Version"></a>
 <a href="https://www.npmjs.com/package/cursor-parallax"><img src="https://img.shields.io/npm/l/cursor-parallax.svg" alt="License"></a>
 
