@@ -1,3 +1,8 @@
+/*!
+ * Vue.js v1.0.1
+ * (c) 2016-2019 yoshi3
+ * Released under the MIT License.
+ */
 class CursorParallax{
   constructor(wrapper, options) 
   {
@@ -106,7 +111,7 @@ class CursorParallax{
     this.isStop = false;
   }
   destroy () {
-    removeEvents();
+    this.removeEvents();
   }
 }
 module.exports = CursorParallax;
