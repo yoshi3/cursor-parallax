@@ -8,7 +8,7 @@ This is a simple parallax library that works with cursor and device orientation.
 It works with ES5 's vanilla JS on browsers supporting `translate3d`.
 
 ## Demo
-[demo](https://kokoyoshi.github.io/cursor-parallax/test/)
+[demo](https://yoshi3.github.io/cursor-parallax/test/)
 
 ## Usage
 
