@@ -68,11 +68,11 @@ npm install
 
 ### Convert the ES6 code into valid ES5 combining, and put `dist/cursor-parallax.js`
 ```
-`npm bin`/webpack
+npm run build
 ```
 
 ## License
-The MIT License (MIT) Copyright (c) 2016 kokoyoshi.
+The MIT License (MIT) Copyright (c) 2016-2019 yoshi3.
 
 
 [license-image]:http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
