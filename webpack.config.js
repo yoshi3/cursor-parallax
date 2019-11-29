@@ -1,34 +1,35 @@
-const webpack = require("webpack");
-const saveLicense = require('uglify-save-license');
+const path = require('path');
+const pjson = require('./package.json');
 
 module.exports = {
-  context: __dirname + '/',
-  entry: {
-    'cursor-parallax': './src/forBrowser',
-  },
+  mode: 'production',
+  entry: path.join(__dirname, './src/forBrowser'),
   output: {
-    path: './dist',
-    filename: '[name].js',
-    sourceMapFilename: '[file].map'
+    filename: pjson.name + '.js',
+    path: path.join(__dirname, 'dist')
   },
   module: {
-    loaders: [
-      { 
-        test: /\.js$/, 
-        exclude: /node_modules/, 
-        loader: 'babel',
-        query:{
-          presets: ['es2015']
-        }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env'
+              ]
+            }
+          }
+        ]
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
       }
-    ],
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin()
-  ],
-  devtool: '#source-map',
-  devServer: {
-    contentBase: './',
-    port: 3000
+    ]
   }
 };
