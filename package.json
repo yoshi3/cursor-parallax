@@ -1,6 +1,6 @@
 {
   "name": "cursor-parallax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a simple parallax library that works with cursor and device orientation.",
   "main": "dist/index.js",
   "scripts": {
@@ -8,20 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:kokoyoshi/cursor-parallax.git"
+    "url": "git@github.com:yoshi3/cursor-parallax.git"
   },
-  "author": "kokoyoshi",
+  "author": "yoshi3",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kokoyoshi/cursor-parallax/issues"
+    "url": "https://github.com/yoshi3/cursor-parallax/issues"
   },
-  "homepage": "https://github.com/kokoyoshi/cursor-parallax#readme",
+  "homepage": "https://github.com/yoshi3/cursor-parallax#readme",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.18.0",
     "uglify-save-license": "^0.4.1",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": ">=3.1.11"
   }
 }
