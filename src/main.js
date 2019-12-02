@@ -59,8 +59,30 @@ class CursorParallax{
     }
     if (this.options.deviceorientation)
     {
-      window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
+      if (this.isNeedPermissionOfDeviceOrientationEvent) {
+        try {
+          DeviceOrientationEvent.requestPermission()
+            .then(response => {
+              alert(response);
+              if (response === 'granted') {
+                window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
+              }
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
+      }
     }
+  }
+  resetEvents () {
+    this.removeEvents();
+
+    this.setEvents();
   }
   removeEvents ()
   {
@@ -110,8 +132,15 @@ class CursorParallax{
   {
     this.isStop = false;
   }
-  destroy () {
+  destroy ()
+  {
     this.removeEvents();
+  }
+  isNeedPermissionOfDeviceOrientationEvent ()
+  {
+    return DeviceOrientationEvent &&
+            DeviceOrientationEvent.requestPermission &&
+            typeof DeviceOrientationEvent.requestPermission === 'function'
   }
 }
 module.exports = CursorParallax;
