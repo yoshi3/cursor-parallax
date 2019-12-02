@@ -43,7 +43,7 @@ var cursorParallax = new CursorParallax(elm, {
   deviceorientation: true,
 });
 var elm_requestButton = document.getElementById('requestButton');
-if (!cursorParallax.isNeedPermissionOfDeviceOrientationEvent()) {
+if (!cursorParallax.isNeededPermissionOfDeviceOrientationEvent()) {
   console.log(elm_requestButton);
   elm_requestButton.style.display = 'none';
 }
@@ -58,7 +58,7 @@ elm_requestButton.addEventListener('click', event => {
 - `start`: Restart from stopped state
 - `resetEvent`: Rebind all events
 - `destroy`: Unbind all events
-- `isNeedPermissionOfDeviceOrientationEvent`: Whether permission for `DeviceOrientationEvent` is required
+- `isNeededPermissionOfDeviceOrientationEvent`: Whether permission for `DeviceOrientationEvent` is required
 - `requestPermissionOfDeviceOrientationEvent`: Request permission to use `deviceOrientationEvent`
 
 ## For npm

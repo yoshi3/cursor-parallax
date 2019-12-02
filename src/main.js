@@ -62,7 +62,7 @@ class CursorParallax{
       window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
     }
   }
-  isNeedPermissionOfDeviceOrientationEvent ()
+  isNeededPermissionOfDeviceOrientationEvent ()
   {
     return DeviceOrientationEvent &&
             DeviceOrientationEvent.requestPermission &&
