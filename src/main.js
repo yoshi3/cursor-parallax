@@ -1,5 +1,5 @@
 /*!
- * Vue.js v1.0.1
+ * cursor-parallax v1.1.1
  * (c) 2016-2019 yoshi3
  * Released under the MIT License.
  */
