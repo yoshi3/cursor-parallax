@@ -42,6 +42,7 @@ var cursorParallax = new CursorParallax(elm, {
   deviceorientationRatio: 1,
   mousemove: true,
   deviceorientation: true, // When set true here, if the current device has `DeviceOrientationEvent.requestPermission ()`, execute it.
+```
 ## API
 
 - `stop`: stop temporarily
