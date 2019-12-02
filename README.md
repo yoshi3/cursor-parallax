@@ -54,10 +54,12 @@ elm_requestButton.addEventListener('click', event => {
 ```
 ## API
 
-- `stop`: stop temporarily
-- `start`: restart from stopped state
-- `resetEvent`: rebind all events
-- `destroy`: unbind all events
+- `stop`: Stop temporarily
+- `start`: Restart from stopped state
+- `resetEvent`: Rebind all events
+- `destroy`: Unbind all events
+- `isNeedPermissionOfDeviceOrientationEvent`: Whether permission for `DeviceOrientationEvent` is required
+- `requestPermissionOfDeviceOrientationEvent`: Request permission to use `deviceOrientationEvent`
 
 ## For npm
 ```
