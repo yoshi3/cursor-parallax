@@ -63,7 +63,6 @@ class CursorParallax{
         try {
           DeviceOrientationEvent.requestPermission()
             .then(response => {
-              alert(response);
               if (response === 'granted') {
                 window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
               }
