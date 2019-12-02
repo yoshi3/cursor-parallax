@@ -40,13 +40,12 @@ var cursorParallax = new CursorParallax(elm, {
   mousemoveRatio: 0.5,
   deviceorientationRatio: 1,
   mousemove: true,
-  deviceorientation: true
-});
-```
+  deviceorientation: true, // When set true here, if the current device has `DeviceOrientationEvent.requestPermission ()`, execute it.
 ## API
 
 - `stop`: stop temporarily
 - `start`: restart from stopped state
+- `resetEvent`: rebind all events (execute `DeviceOrientationEvent.requestPermission ()` again)
 - `destroy`: unbind all events
 
 ## For npm
