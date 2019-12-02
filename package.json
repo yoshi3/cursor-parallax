@@ -1,6 +1,6 @@
 {
   "name": "cursor-parallax",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "This is a simple parallax library that works with cursor and device orientation.",
   "main": "dist/index.js",
   "scripts": {
@@ -17,6 +17,11 @@
     "url": "https://github.com/yoshi3/cursor-parallax/issues"
   },
   "homepage": "https://github.com/yoshi3/cursor-parallax#readme",
+  "keywords": [
+    "parallax",
+    "cursor",
+    "deviceorientation"
+  ],
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
