@@ -59,23 +59,28 @@ class CursorParallax{
     }
     if (this.options.deviceorientation)
     {
-      if (this.isNeedPermissionOfDeviceOrientationEvent) {
-        try {
-          DeviceOrientationEvent.requestPermission()
-            .then(response => {
-              if (response === 'granted') {
-                window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
-              }
-            })
-            .catch(error => {
-              console.error(error);
-            });
-        } catch (error) {
-          console.log(error);
-        }
-      } else {
-        window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
-      }
+      window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
+    }
+  }
+  isNeedPermissionOfDeviceOrientationEvent ()
+  {
+    return DeviceOrientationEvent &&
+            DeviceOrientationEvent.requestPermission &&
+            typeof DeviceOrientationEvent.requestPermission === 'function'
+  }
+  requestPermissionOfDeviceOrientationEvent() {
+    try {
+      DeviceOrientationEvent.requestPermission()
+        .then(response => {
+          if (response === 'granted') {
+            window.addEventListener('deviceorientation', this.deviceorientation.bind(this));
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.log(error);
     }
   }
   resetEvents () {
@@ -134,12 +139,6 @@ class CursorParallax{
   destroy ()
   {
     this.removeEvents();
-  }
-  isNeedPermissionOfDeviceOrientationEvent ()
-  {
-    return DeviceOrientationEvent &&
-            DeviceOrientationEvent.requestPermission &&
-            typeof DeviceOrientationEvent.requestPermission === 'function'
   }
 }
 module.exports = CursorParallax;

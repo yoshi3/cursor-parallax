@@ -7,7 +7,6 @@ This is a simple parallax library that works with cursor and device orientation.
 
 ## Support
 It works with ES5 's vanilla JS on browsers supporting `translate3d`.
-For ios12 series, it will not work if user settings are not changed.
 
 ## Demo
 [demo](https://yoshi3.github.io/cursor-parallax/test/)
@@ -41,13 +40,23 @@ var cursorParallax = new CursorParallax(elm, {
   mousemoveRatio: 0.5,
   deviceorientationRatio: 1,
   mousemove: true,
-  deviceorientation: true, // When set true here, if the current device has `DeviceOrientationEvent.requestPermission ()`, execute it.
+  deviceorientation: true,
+});
+var elm_requestButton = document.getElementById('requestButton');
+if (!cursorParallax.isNeedPermissionOfDeviceOrientationEvent()) {
+  console.log(elm_requestButton);
+  elm_requestButton.style.display = 'none';
+}
+// For ios since v12
+elm_requestButton.addEventListener('click', event => {
+    cursorParallax.requestPermissionOfDeviceOrientationEvent();
+  });
 ```
 ## API
 
 - `stop`: stop temporarily
 - `start`: restart from stopped state
-- `resetEvent`: rebind all events (execute `DeviceOrientationEvent.requestPermission ()` again)
+- `resetEvent`: rebind all events
 - `destroy`: unbind all events
 
 ## For npm

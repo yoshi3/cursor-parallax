@@ -77,6 +77,7 @@
       <div></div><div></div><div></div><div></div>
     </div>
   </div>
+  <button id="requestButton">Request permission of deviceOrientationEvent</button>
   <script src="../dist/cursor-parallax.js"></script>
   <script>
     var elm = document.querySelector('.parallax-wrapper');
@@ -88,6 +89,14 @@
       mousemove: true,
       deviceorientation: true
     });
+    var elm_requestButton = document.getElementById('requestButton');
+    if (!cursorParallax.isNeedPermissionOfDeviceOrientationEvent()) {
+      elm_requestButton.style.display = 'none';
+    }
+    // For ios since v12
+    elm_requestButton.addEventListener('click', event => {
+        cursorParallax.requestPermissionOfDeviceOrientationEvent();
+      });
   </script>
 </body>
 </html>
