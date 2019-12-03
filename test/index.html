@@ -42,61 +42,113 @@
 </head>
 <body>
   <p>Move cursor on this area or tilt device.</p>
-  <div class="parallax-wrapper">
-    <div class="layer" data-depth="1">
-      <div></div><div></div><div></div><div></div>
+  <section>
+    <h2>`isUsedTheFirstTilt` is `false`</h2>
+    <div class="parallax-wrapper isNotUsedTheFirstTilt">
+      <div class="layer" data-depth="1">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".9">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".8">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".7">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".6">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".5">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".4">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".3">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".2">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth=".1">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="layer" data-depth="0">
+        <div></div><div></div><div></div><div></div>
+      </div>
     </div>
-    <div class="layer" data-depth=".9">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".8">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".7">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".6">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".5">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".4">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".3">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".2">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth=".1">
-      <div></div><div></div><div></div><div></div>
-    </div>
-    <div class="layer" data-depth="0">
-      <div></div><div></div><div></div><div></div>
-    </div>
-  </div>
+  </section>
+  <section>
+      <h2>`isUsedTheFirstTilt` is `true`</h2>
+      <div class="parallax-wrapper isUsedTheFirstTilt">
+        <div class="layer" data-depth="1">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".9">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".8">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".7">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".6">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".5">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".4">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".3">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".2">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth=".1">
+          <div></div><div></div><div></div><div></div>
+        </div>
+        <div class="layer" data-depth="0">
+          <div></div><div></div><div></div><div></div>
+        </div>
+      </div>
+    </section>
   <button id="requestButton">Request permission of deviceOrientationEvent</button>
   <script src="../dist/cursor-parallax.js"></script>
   <script>
-    var elm = document.querySelector('.parallax-wrapper');
-    var cursorParallax = new CursorParallax(elm, {
+    var cursorParallaxIsNotUsedTheFirstTilt = new CursorParallax(
+      document.querySelector('.parallax-wrapper.isNotUsedTheFirstTilt'), {
       easing: 'ease-out',
       duration: '.6s',
       mousemoveRatio: 0.5,
       deviceorientationRatio: 1,
       mousemove: true,
-      deviceorientation: true
+      deviceorientation: true,
+      isUsedTheFirstTilt: false,
     });
     var elm_requestButton = document.getElementById('requestButton');
-    if (!cursorParallax.isNeededPermissionOfDeviceOrientationEvent()) {
+    if (!cursorParallaxIsNotUsedTheFirstTilt.isNeededPermissionOfDeviceOrientationEvent()) {
       elm_requestButton.style.display = 'none';
     }
     // For ios since v12
     elm_requestButton.addEventListener('click', event => {
-        cursorParallax.requestPermissionOfDeviceOrientationEvent();
+      cursorParallaxIsNotUsedTheFirstTilt.requestPermissionOfDeviceOrientationEvent();
       });
+    var cursorParallaxIsNotUsedTheFirstTilt = new CursorParallax(
+      document.querySelector('.parallax-wrapper.isUsedTheFirstTilt'), {
+      easing: 'ease-out',
+      duration: '.6s',
+      mousemoveRatio: 0.5,
+      deviceorientationRatio: 1,
+      mousemove: true,
+      deviceorientation: true,
+      isUsedTheFirstTilt: true,
+    });
   </script>
 </body>
 </html>

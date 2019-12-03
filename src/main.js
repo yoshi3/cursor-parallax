@@ -1,5 +1,5 @@
 /*!
- * cursor-parallax v1.1.1
+ * cursor-parallax v1.3.0
  * (c) 2016-2019 yoshi3
  * Released under the MIT License.
  */
@@ -7,6 +7,9 @@ class CursorParallax{
   constructor(wrapper, options) 
   {
     this.isStop = true;
+    this.xFromTiltForTheFirstTime = 0;
+    this.yFromTiltForTheFirstTime = 0;
+    this.isCalledDeviceorientationForTheFirstTime = true;
 
     this.options = this.supplement({
       easing: 'ease-out',
@@ -14,7 +17,8 @@ class CursorParallax{
       mousemoveRatio: 0.5,
       deviceorientationRatio: 1,
       mousemove: true,
-      deviceorientation: true
+      deviceorientation: true,
+      isUsedTheFirstTilt: false,
     }, options);
 
     this.initElements(wrapper);
@@ -95,29 +99,44 @@ class CursorParallax{
   }
   moveLayer (x, y) 
   {
-    if(this.isStop) return;
+    if (this.isStop) return;
     this.elm_layers.forEach((elm_layer) => {
       let _x = x * elm_layer._depth;
       let _y = y * elm_layer._depth;
       elm_layer.style.transform = 'translate3d('+ _x +'%, '+ _y +'%, 0)';
     });
   }
-  mousemove (e) 
+  mousemove (event) 
   {
-    let my = e.pageY - this.elm_wrapper._offset.top;
-    let mx = e.pageX - this.elm_wrapper._offset.left;
-    let x = Math.round(mx / this.elm_wrapper._offset.width * 100) - 50;
-    let y = Math.round(my / this.elm_wrapper._offset.height * 100) - 50;
-    x = x * this.options.mousemoveRatio;
-    y = y * this.options.mousemoveRatio;
+    let mouseX = event.pageX - this.elm_wrapper._offset.left;
+    let mouseY = event.pageY - this.elm_wrapper._offset.top;
+    let x = Math.round(mouseX / this.elm_wrapper._offset.width * 100) - 50;
+    let y = Math.round(mouseY / this.elm_wrapper._offset.height * 100) - 50;
+    x *= this.options.mousemoveRatio;
+    y *= this.options.mousemoveRatio;
+
     this.moveLayer(x, y);
   }
-  deviceorientation (e)
+  deviceorientation (event)
   {
-    let x = ( Math.round(e.gamma) / 2 + 45 ) / 90 * 100 - 50;
-    let y = ( Math.round(e.beta) / 2 + 45 ) / 90 * 100 - 50;
-    x = x * this.options.deviceorientationRatio;
-    y = y * this.options.deviceorientationRatio;
+    if (this.isCalledDeviceorientationForTheFirstTime)
+    {
+      this.xFromTiltForTheFirstTime = this._calcCoordinateByTilt(event.gamma);
+      this.yFromTiltForTheFirstTime = this._calcCoordinateByTilt(event.beta);
+      this.isCalledDeviceorientationForTheFirstTime = false;
+    }
+
+    let x = this._calcCoordinateByTilt(event.gamma);
+    let y = this._calcCoordinateByTilt(event.beta);
+    x *= this.options.deviceorientationRatio;
+    y *= this.options.deviceorientationRatio;
+
+    if (this.options.isUsedTheFirstTilt)
+    {
+      x = this.xFromTiltForTheFirstTime > 0? x - this.xFromTiltForTheFirstTime : x - this.xFromTiltForTheFirstTime;
+      y = this.yFromTiltForTheFirstTime > 0? y - this.yFromTiltForTheFirstTime : y - this.yFromTiltForTheFirstTime;
+    }
+
     this.moveLayer(x, y);
   }
   supplement (defaultOptions, options)
@@ -139,6 +158,10 @@ class CursorParallax{
   destroy ()
   {
     this.removeEvents();
+  }
+  _calcCoordinateByTilt(eulerAngle)
+  {
+    return ( Math.round(eulerAngle) / 2 + 45 ) / 90 * 100 - 50;
   }
 }
 module.exports = CursorParallax;
