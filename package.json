@@ -1,6 +1,6 @@
 {
   "name": "cursor-parallax",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "This is a simple parallax library that works with cursor and device orientation.",
   "main": "dist/index.js",
   "scripts": {
