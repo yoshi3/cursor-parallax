@@ -42,6 +42,7 @@ var cursorParallax = new CursorParallax(elm, {
   deviceorientationRatio: 1,
   mousemove: true,
   deviceorientation: true,
+  isUsedTheFirstTilt: false, // Whether to parallax with initial slope as 0
 });
 var elm_requestButton = document.getElementById('requestButton');
 if (!cursorParallax.isNeededPermissionOfDeviceOrientationEvent()) {
