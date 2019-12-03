@@ -28,6 +28,7 @@ It works with ES5 's vanilla JS on browsers supporting `translate3d`.
     <!-- something to contents -->
   </div>
 </div>
+<button id="requestButton">Request permission of deviceOrientationEvent</button>
 ```
 
 ### JS
@@ -44,7 +45,6 @@ var cursorParallax = new CursorParallax(elm, {
 });
 var elm_requestButton = document.getElementById('requestButton');
 if (!cursorParallax.isNeededPermissionOfDeviceOrientationEvent()) {
-  console.log(elm_requestButton);
   elm_requestButton.style.display = 'none';
 }
 // For ios since v12
